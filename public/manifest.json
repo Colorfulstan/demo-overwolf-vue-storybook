@@ -14,7 +14,7 @@
 		"start_window":"MainWindow",
 		"windows":{
 			"MainWindow":{
-					"file":"src/index.html",
+					"file":"main.window.html",
 					"transparent": true,
 					"resizable": true,
 					"use_os_windowing": true,
@@ -28,7 +28,7 @@
 					}
 				},
 			"SubWindow":{
-					"file":"src/subwindow.html",
+					"file":"sub.window.html",
 					"transparent":true,
 					"resizable":false,
 					"size":{
