@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<title>Demo app</title>
+	<link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600" rel="stylesheet">
+
+	<script>
+      function dragResize(edge) {
+        overwolf.windows.getCurrentWindow(function (result) {
+          if (result.status == "success") {
+            overwolf.windows.dragResize(result.window.id, edge);
+          }
+        });
+      };
+
+      function dragMove() {
+        overwolf.windows.getCurrentWindow(function (result) {
+          if (result.status == "success" && result.window.state !== "Maximized") {
+            overwolf.windows.dragMove(result.window.id);
+          }
+        });
+      };
+
+
+      function openSubWindow() {
+        alert("the subwindow will only be visible inside a game");
+        overwolf.windows.obtainDeclaredWindow("SubWindow", function (result) {
+          if (result.status == "success") {
+            overwolf.windows.restore(result.window.id, function (result) {
+              console.log(result);
+            });
+          }
+        });
+      };
+
+      function takeScreenshot() {
+        overwolf.media.takeScreenshot(function (result) {
+          if (result.status == "success") {
+            var img = document.getElementById("screenshot");
+            img.src = result.url;
+            img.onload = function () {
+              overwolf.media.shareImage(img, "Screen Shot");
+            };
+          }
+        });
+      }
+
+      function runTeamSpeak() {
+        overwolf.extensions.launch("lmkhofgknaclgcdplfkgcahdkdmomimaoklioonf");
+      };
+	</script>
+</head>
+<body>
+<div id="app"></div>
+</body>
+</html>
