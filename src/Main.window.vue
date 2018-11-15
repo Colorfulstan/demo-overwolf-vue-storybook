@@ -32,6 +32,8 @@
 				<p>Nested Counter: {{nested.counter2}}</p>
 
 				<img id="screenshot" width="300px" />
+				<img alt="Vue logo" src="./assets/logo.png">
+
 			</main>
 		</div>
 

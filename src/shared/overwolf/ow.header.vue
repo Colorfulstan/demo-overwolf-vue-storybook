@@ -3,35 +3,35 @@
 		<div class="window-controls-group">
 			<button class="window-control" @click="showSupport">
 				<svg class="svg-icon-fill">
-					<use xlink:href="./assets/svg/sprite.svg#window-control_support" />
+					<use xlink:href="./svg/sprite.svg#window-control_support" />
 				</svg>
 			</button>
 
 			<button class="window-control">
 				<svg class="svg-icon-fill">
-					<use xlink:href="./assets/svg/sprite.svg#window-control_settings" />
+					<use xlink:href="./svg/sprite.svg#window-control_settings" />
 				</svg>
 			</button>
 
 			<button class="window-control" @click="minimize">
 				<svg class="svg-icon-fill">
-					<use xlink:href="./assets/svg/sprite.svg#window-control_minimize" />
+					<use xlink:href="./svg/sprite.svg#window-control_minimize" />
 				</svg>
 			</button>
 
 			<button class="window-control" @click="toggleMaximize">
 				<input type="checkbox" class="maximize-restore-selector toggle-icons" checked />
 				<svg class="svg-icon-fill svg-icon-restore">
-					<use xlink:href="./assets/svg/sprite.svg#window-control_restore" />
+					<use xlink:href="./svg/sprite.svg#window-control_restore" />
 				</svg>
 				<svg class="svg-icon-fill svg-icon-maximize">
-					<use xlink:href="./assets/svg/sprite.svg#window-control_maximize" />
+					<use xlink:href="./svg/sprite.svg#window-control_maximize" />
 				</svg>
 			</button>
 
 			<button class="window-control window-control-close" @click="closeWindow">
 				<svg class="svg-icon-fill">
-					<use xlink:href="./assets/svg/sprite.svg#window-control_close" />
+					<use xlink:href="./svg/sprite.svg#window-control_close" />
 				</svg>
 			</button>
 		</div>
