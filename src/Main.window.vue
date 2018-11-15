@@ -29,7 +29,7 @@
 				</div>
 
 				<p>Counter: {{counter}}</p>
-				<p>Nested Counter: {{nested.counter2}}</p>
+				<p>Nested Counter: {{counter2}}</p>
 
 				<img id="screenshot" width="300px" />
 				<img alt="Vue logo" src="./assets/logo.png">
@@ -51,13 +51,24 @@
 <script>
   import {mapActions, mapState} from 'vuex'
   import OwHeader from './shared/overwolf/ow.header.vue'
+  import store from './store';
 
   export default {
     components: {
       OwHeader
     },
     computed: {
-      ...mapState('CounterStore', ['counter', 'nested'])
+      counter(){
+        return this.$store.state.CounterStore.counter
+	  },
+
+      counter2(){
+        return this.$store.state.CounterStore.nested.counter2
+      }
+      // ...mapState('CounterStore', {
+      //   counter: state => state.counter,
+      //   counter2: state => state.nested.counter2
+      // })
     },
     methods: {
       ...mapActions('CounterStore', [

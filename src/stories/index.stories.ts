@@ -5,6 +5,14 @@ import AdminWindow   from '../Admin.window.vue';
 import SubWindow     from '../Sub.window.vue';
 import MainWindow    from '../Main.window.vue';
 import OwHeader      from '../shared/overwolf/ow.header.vue';
+import store         from '../store';
+import Vue from 'vue'
+//
+// // NOTE: for storybook to work, we need to set the store on the component, not only on the main Vue Instance
+// MainWindow.store = store;
+// SubWindow.store  = store;
+
+Vue.prototype.$store = store
 
 storiesOf('Windows', module)
   .add('MainWindow', () => ({

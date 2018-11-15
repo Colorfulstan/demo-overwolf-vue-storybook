@@ -7,16 +7,20 @@
 			<button class="btn" @click="increment()">Increment</button>
 			<button class="btn" @click="decrement()">Decrement</button>
 			<p>Counter: {{counter}}</p>
-			<p>Nested Counter: {{nested.counter2}}</p>
+			<p>Nested Counter: {{counter2}}</p>
 		</main>
 	</div>
 </template>
 <script>
   import {mapActions, mapState} from 'vuex'
+  import store from './store';
 
   export default {
     computed: {
-      ...mapState('CounterStore', ['counter', 'nested'])
+      ...mapState('CounterStore', {
+        counter: state => state.counter,
+		counter2: state => state.nested.counter2
+	  })
     },
     methods: {
       ...mapActions('CounterStore', [
