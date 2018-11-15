@@ -47,7 +47,11 @@ let pages = {
       "resizable": false,
       "size": {
         "width": 400,
-        "height": 300
+        "height": 600
+      },
+      "min_size": {
+        "width": 400,
+        "height": 600
       }
     },
     // entry for the page

@@ -4,7 +4,26 @@
 			<h1>Hello World, again!</h1>
 			<p>This is the sub window. You can drag from anywhere you want, but you can't resize it</p>
 			<button class="btn" onclick="closeWindow();">Close</button>
+			<button class="btn" @click="increment()">Increment</button>
+			<button class="btn" @click="decrement()">Decrement</button>
+			<p>Counter: {{counter}}</p>
+			<p>Nested Counter: {{nested.counter2}}</p>
 		</main>
 	</div>
 </template>
+<script>
+  import {mapActions, mapState} from 'vuex'
+
+  export default {
+    computed: {
+      ...mapState('CounterStore', ['counter', 'nested'])
+    },
+    methods: {
+      ...mapActions('CounterStore', [
+        'increment',
+        'decrement'
+      ])
+    }
+  }
+</script>
 <style src="./assets/scss/style.scss" lang="scss"></style>
