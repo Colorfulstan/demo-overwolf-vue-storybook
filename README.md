@@ -2,7 +2,7 @@
 
 ## Prerequisites
 1. Install node
-2. globally install vue-cli 3 `npm install -g @vue-cli`
+2. globally install vue-cli 3 `npm install -g @vue/cli`
 
 ## Project setup
 1. install project dependencies
