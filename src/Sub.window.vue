@@ -11,23 +11,12 @@
 		</main>
 	</div>
 </template>
-<script>
-  import {mapActions, mapState} from 'vuex'
-  import store from './store';
+<script lang="ts">
+
+  import { CounterMixin } from './counter/counter.mixin';
 
   export default {
-    computed: {
-      ...mapState('CounterStore', {
-        counter: state => state.counter,
-		counter2: state => state.nested.counter2
-	  })
-    },
-    methods: {
-      ...mapActions('CounterStore', [
-        'increment',
-        'decrement'
-      ])
-    }
-  }
+    mixins: [CounterMixin]
+  };
 </script>
 <style src="./assets/scss/style.scss" lang="scss"></style>

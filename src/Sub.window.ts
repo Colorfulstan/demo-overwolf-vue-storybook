@@ -1,12 +1,15 @@
-import Vue from 'vue';
-import App from './Sub.window.vue';
+import Vue         from 'vue';
+import App         from './Sub.window.vue';
 // import router from './router';
-import store from './store';
+import { provide } from '@/provide';
 
 Vue.config.productionTip = false;
 
+// @ts-ignore
+Vue.prototype.$injector = overwolf.windows.getMainWindow()['injectorInstance'];
+
 new Vue({
   // router,
-  store,
+  provide,
   render: (h) => h(App),
 }).$mount('#app');

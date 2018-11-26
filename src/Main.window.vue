@@ -48,58 +48,33 @@
 		<div class="resize corner bottom-right" onmousedown="dragResize('BottomRight');"></div>
 	</div>
 </template>
-<script>
-  import {mapActions, mapState} from 'vuex'
-  import OwHeader from './shared/overwolf/ow.header.vue'
-  import store from './store';
+<script lang="ts">
+  import OwHeader         from './shared/overwolf/ow.header.vue';
+  import { CounterMixin } from './counter/counter.mixin';
 
   export default {
+    mixins    : [CounterMixin],
     components: {
       OwHeader
     },
-    computed: {
-      counter(){
-        return this.$store.state.CounterStore.counter
-	  },
+    data      : () => {
+      return {};
+    },
 
-      counter2(){
-        return this.$store.state.CounterStore.nested.counter2
-      }
-      // ...mapState('CounterStore', {
-      //   counter: state => state.counter,
-      //   counter2: state => state.nested.counter2
-      // })
-    },
-    methods: {
-      ...mapActions('CounterStore', [
-        'increment',
-        'decrement'
-      ])
-    },
     watch: {
-      counter(...args) {
-        console.log('counter watch triggered', args)
+      counter(...args: any[]) {
+        console.log('counter watch triggered', args);
       }
     },
-    created() {
-      // THIS WILL ONLY WORK WITHIN THE RESPECTIVE WINDOW
-      // this.mutationSubscriptionUnsub = this.$store.subscribeAction((mutation, state) => {
-      //   console.log(this.name, 'mutation subscription - mutation:', mutation);
-      //   console.log(this.name, 'mutation subscription - state:', state);
-      // });
-
-      // no idea how this works tbh, doesn't do anything right now
-      // this.unwatch = this.$store.watch((state)=>state.CounterStore.counter, (...args)=>{
-      //   console.log('watcher on store triggered', args)
-      // })
-    },
-    updated(...args) {
-      console.log('something was updated', args)
-    },
-    destroyed() {
-      // this.mutationSubscriptionUnsub();
-      // this.unwatch()
+    // created() {
+    //   // this.counter  = this.counterService.counter;
+    //   // this.counter2 = this.counterService.counter2;
+    //   this.counterService.watchCounter((newCounter) => {this.counter = newCounter;});
+    //   this.counterService.watchCounter2((newCounter) => {this.counter2 = newCounter;});
+    // },
+    updated(...args: any[]) {
+      console.log('something was updated', args);
     }
-  }
+  };
 </script>
 <style src="./assets/scss/style.scss" lang="scss"></style>

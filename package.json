@@ -36,6 +36,7 @@
     "ts-jest": "^23.0.0",
     "typescript": "^3.0.0",
     "vue-cli-plugin-storybook": "~0.4.8",
+    "vue-inject": "~2.1.1",
     "vue-template-compiler": "^2.5.17"
   }
 }
