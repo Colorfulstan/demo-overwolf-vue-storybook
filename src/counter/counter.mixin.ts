@@ -1,13 +1,14 @@
-import { Component, Inject, Vue } from 'vue-property-decorator';
-import { CounterService }         from '@/counter/counter.service';
+import { Component, Inject } from 'vue-property-decorator';
+import { CounterService }    from '@/counter/counter.service';
+import { ServiceMixinBase }  from '@/Service.mixin.base';
 
 @Component({
   name: 'counter-mixin'
 })
-export class CounterMixin extends Vue {
-  public counter                         = -999;
-  public counter2                        = -999;
-  private teardownFns: Array<() => void> = [];
+export class CounterMixin extends ServiceMixinBase {
+  public counter                           = -999;
+  public counter2                          = -999;
+  protected teardownFns: Array<() => void> = [];
 
   @Inject() private counterService!: CounterService;
 
@@ -19,14 +20,14 @@ export class CounterMixin extends Vue {
     return this.counterService.decrement();
   }
 
-  private created() {
+  protected created() {
     this.teardownFns.push(
       this.counterService.watchCounter((newCounter) => { this.counter = newCounter; }),
       this.counterService.watchCounter2((newCounter) => { this.counter2 = newCounter; })
     );
   }
 
-  private beforeDestroy() {
+  protected beforeDestroy() {
     this.teardownFns.forEach((teardown) => teardown());
   }
 };
