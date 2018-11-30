@@ -49,32 +49,26 @@
 	</div>
 </template>
 <script lang="ts">
-  import OwHeader         from './shared/overwolf/ow.header.vue';
-  import { CounterMixin } from './counter/counter.mixin';
+  import OwHeader                  from './shared/overwolf/ow.header.vue';
+  import { CounterMixin }          from './counter/counter.mixin';
+  import { Component, Vue, Watch } from 'vue-property-decorator';
 
-  export default {
+  @Component({
     mixins    : [CounterMixin],
     components: {
       OwHeader
-    },
-    data      : () => {
-      return {};
-    },
+    }
+  })
+  export default class MainWindow extends Vue {
 
-    watch: {
-      counter(...args: any[]) {
-        console.log('counter watch triggered', args);
-      }
-    },
-    // created() {
-    //   // this.counter  = this.counterService.counter;
-    //   // this.counter2 = this.counterService.counter2;
-    //   this.counterService.watchCounter((newCounter) => {this.counter = newCounter;});
-    //   this.counterService.watchCounter2((newCounter) => {this.counter2 = newCounter;});
-    // },
+    @Watch('counter')
+    onCounterWatch(...args: any[]) {
+      console.log('counter watch triggered', args);
+    }
+
     updated(...args: any[]) {
       console.log('something was updated', args);
     }
-  };
+  }
 </script>
 <style src="./assets/scss/style.scss" lang="scss"></style>

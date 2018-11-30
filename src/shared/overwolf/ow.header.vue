@@ -80,7 +80,7 @@
   export default {
     created() {
       // @ts-ignore
-      this.$injector.get('test').hi();
+      // this.$injector.get('test').hi();
     },
     methods: {
       closeWindow,

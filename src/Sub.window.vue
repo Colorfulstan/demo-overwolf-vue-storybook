@@ -13,10 +13,10 @@
 </template>
 <script lang="ts">
 
-  import { CounterMixin } from './counter/counter.mixin';
+  import { CounterMixin }      from './counter/counter.mixin';
+  import { Component, Mixins } from 'vue-property-decorator';
 
-  export default {
-    mixins: [CounterMixin]
-  };
+  @Component
+  export default class SubWindow extends Mixins(CounterMixin) {};
 </script>
 <style src="./assets/scss/style.scss" lang="scss"></style>
